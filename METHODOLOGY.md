@@ -4,7 +4,7 @@ The evaluation must be conducted in an objective, controlled environment to ensu
 
 ## 1. Test Targets (The Codebases)
 Select 3-5 repositories for the evaluation:
-*   **The Custom Benchmark (`secret-testbed`):** Used to test the absolute limits of the scanner's engine (deep dataflow, second-order analysis, exotic secret formats, transitive dependencies). Vendors cannot game this because it is custom-built.
+*   **The Custom Benchmark (`secret-testbed`):** Used to test the limitations of the scan engine (deep dataflow, second-order analysis, exotic secret formats, transitive dependencies). 
 *   **Large Monolith:** A massive, legacy internal application (e.g., millions of lines of Java or C#). Used to test scan speed, memory consumption, and false positive generation at scale.
 *   **Modern Microservice:** A modern application (e.g., Go, Node.js, Rust) to test language support and modern framework coverage.
 *   **Infrastructure/Serverless Repo:** A repository heavy with Terraform, CloudFormation, Dockerfiles, and Lambda functions to test IaC and serverless coverage.

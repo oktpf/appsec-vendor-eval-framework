@@ -13,5 +13,3 @@ To provide a reproducible, data-driven methodology for conducting "bake-offs" (P
 
 ## Using the Secret-Testbed
 This framework is designed to be used in conjunction with the `secret-testbed` repository, a custom-built, highly weaponized project containing intentionally vulnerable code (complex SAST findings spanning multiple files, obfuscated secrets, and transitive CVEs).
-
-Because vendors often pre-train their models or fine-tune their rulesets against public benchmarks (like OWASP Benchmark or WebGoat), the custom `secret-testbed` provides a "zero-day" evaluation environment that the vendors have never seen before.
