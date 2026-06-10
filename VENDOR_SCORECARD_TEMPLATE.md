@@ -1,7 +1,7 @@
 # Vendor Scorecard
 
 **Vendor Name:** _____________________
-**Evaluator:** _______________________
+**Evaluator:** ______________________
 **Date:** __________________________
 
 | Category | Max Points | Vendor Score | Notes / Justification |
@@ -23,13 +23,76 @@
 | Triage UI/UX | 5 | | |
 | Custom Rules Engine | 5 | | |
 | Reporting & Compliance | 5 | | |
-| **TOTAL SCORE** | **100** | **0** | |
+| **5. Specialized Detection Coverage (40)**| | | |
+| Authorization & Access Control | 10 | | |
+| Stored Procedure / Database Code Analysis | 5 | | |
+| Reflection & Dynamic Code Detection | 5 | | |
+| IaC / Cloud Misconfiguration Detection | 10 | | |
+| Web Application Vulnerability Detection | 10 | | |
+| **TOTAL SCORE** | **140** | **0** | |
 
-## Key Findings (Secret-Testbed Results)
-*   **Found SAST:** [x]/[y]
-*   **Found Secrets:** [x]/[y]
+## Key Findings (Testbed Results Summary)
+
+### secret-testbed
+*   **Found SAST:** [x]/11
+*   **Found Secrets:** [x]/23
 *   **Found Transitive CVE:** Yes/No
 *   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### reflection-testbed
+*   **Found SAST:** [x]/8
+*   **Found IaC:** N/A
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### access-control-testbed
+*   **Found SAST:** [x]/14
+*   **Found IaC:** N/A
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### database-testbed
+*   **Found SAST:** [x]/8
+*   **Found IaC:** N/A
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### cloud-iac-testbed
+*   **Found SAST:** N/A
+*   **Found IaC:** [x]/10
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### web-vulns-testbed
+*   **Found SAST:** [x]/18
+*   **Found IaC:** N/A
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+### mass-assignment-testbed
+*   **Found CWE-915 (Mass Assignment):** [x]/30
+*   **Languages:** Java, .NET, Node.js, Python
+*   **Missed Critical Items:** (List items from the answer key that were missed)
+
+## Honeypot Results (False Positives)
+
+| Testbed | Honeypots Flagged | Honeypot IDs | FP Penalty Impact |
+|---------|-------------------|--------------|-------------------|
+| reflection-testbed | [x]/4 | HP-1 to HP-4 | |
+| access-control-testbed | [x]/4 | HP-5 to HP-8 | |
+| database-testbed | [x]/3 | HP-9 to HP-11 | |
+| cloud-iac-testbed | [x]/4 | HP-12 to HP-15 | |
+| web-vulns-testbed | [x]/5 | HP-16 to HP-20 | |
+| mass-assignment-testbed | [x]/10 | HP-21 to HP-30 | |
+| **TOTAL** | **[x]/30** | | Category 1 FP Rate penalty |
+
+## Aggregate Summary
+
+| Testbed | Total Findings | True Positives | False Negatives | Honeypots (FP traps) | Notes |
+|---------|----------------|----------------|-----------------|---------------------|-------|
+| secret-testbed | 34 | | | 0 | 11 SAST + 23 secrets |
+| reflection-testbed | 8 | | | 4 | Java+Python reflection/dynamic code |
+| access-control-testbed | 14 | | | 4 | Authorization/business logic |
+| database-testbed | 8 | | | 3 | TSQL/PLSQL stored procedures |
+| cloud-iac-testbed | 10 | | | 4 | Terraform/Docker/K8s/CloudFormation |
+| web-vulns-testbed | 18 | | | 5 | Web vulns, auth, crypto, XSS, SSTI |
+| mass-assignment-testbed | 30 | | | 10 | CWE-915 across Java/.NET/Node/Python |
+| **TOTAL** | **122** | | | **30** | 59 SAST + 10 IaC + 23 secrets + 30 CWE-915 |
 
 ## Qualitative Notes
 *   **Strengths:**
