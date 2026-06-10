@@ -1,6 +1,6 @@
 # Quantitative Scoring Rubric
 
-This rubric uses a weighted point system (Total: 100 points) to ensure objective evaluation.
+This rubric uses a weighted point system (Total: 140 points) to ensure objective evaluation.
 
 ## 1. Detection Accuracy & Depth (40 Points)
 *   **True Positive Rate (15 pts):** Percentage of known vulnerabilities (from the answer key) successfully detected. (Score = % detected * 15)
@@ -22,3 +22,13 @@ This rubric uses a weighted point system (Total: 100 points) to ensure objective
 *   **Triage UI/UX (5 pts):** The quality of the central dashboard for security engineers. Is it easy to filter, assign, and suppress findings?
 *   **Custom Rules Engine (5 pts):** Can the security team easily write custom rules (e.g., Semgrep, CodeQL, CxQL) to catch internal business-logic flaws?
 *   **Reporting & Compliance (5 pts):** Ability to export SBOMs (CycloneDX, SPDX) and generate compliance reports (OWASP Top 10, PCI-DSS).
+
+## 5. Specialized Detection Coverage (40 Points)
+*   **Authorization & Access Control (10 pts):** IDOR, mass assignment (CWE-915), privilege escalation, race conditions, business logic flaws (access-control-testbed + mass-assignment-testbed)
+*   **Stored Procedure / Database Code Analysis (5 pts):** TSQL/PLSQL injection in stored procedures (database-testbed)
+*   **Reflection & Dynamic Code Detection (5 pts):** Unsafe reflection, eval/exec patterns (reflection-testbed)
+*   **IaC / Cloud Misconfiguration Detection (10 pts):** Terraform, Dockerfile, K8s, CloudFormation findings (cloud-iac-testbed)
+*   **Web Application Vulnerability Detection (10 pts):** Broken auth, crypto failures, XSS/SSTI, HTTP protocol flaws, shadow APIs (web-vulns-testbed)
+
+## Honeypot / False Positive Handling
+Each testbed contains deliberate honeypots — patterns that appear vulnerable but are safe in context (sanitized input, hardcoded arguments, package restrictions). Vendors that flag these as real findings incur False Positive penalties under Category 1. Total honeypots across all testbeds: **30** (see answer_key.md HP-1 through HP-30).
