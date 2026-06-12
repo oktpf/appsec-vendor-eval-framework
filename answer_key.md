@@ -1275,3 +1275,104 @@ Expected FP: CWE-915 (Mass Assignment) — tool may flag model binding or reflec
 | web-vulns-testbed | 18 | 5 |
 | mass-assignment-testbed | 30 CWE-915 | 10 |
 | **Total** | **~122-123** | **30** |
+
+---
+
+# LICENSE: License Analysis Findings (SCA Policy)
+
+These findings are for the `license-testbed` repository. Unlike SAST findings (file:line), license
+findings are evaluated from CycloneDX SBOM output — the tool scans the dependency tree and reports
+each dependency's license identifier, policy classification, and risk severity.
+
+Scoring methodology: see `SCORING_RUBRIC.md` §6 and `CYCLONEDX_WORKSHEET.md`.
+
+---
+
+## Expected CycloneDX SBOM Components (30+)
+
+The tool should produce a CycloneDX 1.6 BOM with at minimum these components listed. All license IDs must be valid SPDX identifiers.
+
+### Direct Dependencies — Real npm Packages
+
+| UID | Package | Version | Expected License (SPDX) | Category | Risk |
+|-----|---------|---------|------------------------|----------|------|
+| LICENSE_COMP_EXPRESS | express | ^4.18.2 | MIT | permissive | None |
+| LICENSE_COMP_LODASH | lodash | ^4.17.21 | MIT | permissive | None |
+| LICENSE_COMP_RXJS | rxjs | ^7.8.1 | Apache-2.0 | permissive | None |
+| LICENSE_COMP_SEMVER | semver | ^7.6.0 | ISC | permissive | None |
+| LICENSE_COMP_SOURCEMAP | source-map | ^0.7.4 | BSD-3-Clause | permissive | None |
+| LICENSE_COMP_SPDXIDS | spdx-license-ids | ^3.0.16 | CC0-1.0 | public-domain | None |
+| LICENSE_COMP_NODEFORGE | node-forge | ^1.3.1 | (BSD-3-Clause OR GPL-2.0) | dual-license | Edge Case |
+| LICENSE_COMP_FFMPEG | ffmpeg-static | ^5.1.0 | GPL-3.0-or-later | **strong-copyleft** | **High** |
+| LICENSE_COMP_SHARP | sharp | ^0.35.0 | Apache-2.0 | permissive | Low |
+| LICENSE_COMP_MYGPL | my-gpl-package | ^1.0.0 | GPL-2.0 | **strong-copyleft** | **High** |
+| LICENSE_COMP_EXTJS | extjs-gpl | ^6.2.0 | GPL-3.0 | dead-code-edge | Low |
+
+### Direct Dependencies — Workspace Packages (@license-testbed/*)
+
+| UID | Package | Version | Expected License (SPDX) | Category | Risk |
+|-----|---------|---------|------------------------|----------|------|
+| LICENSE_COMP_AGPL | @license-testbed/agpl-pkg | 1.0.0 | AGPL-3.0-only | **network-copyleft** | **Critical** |
+| LICENSE_COMP_LGPL | @license-testbed/lgpl-pkg | 1.0.0 | LGPL-2.1-only | weak-copyleft | Medium |
+| LICENSE_COMP_MPL | @license-testbed/mpl-pkg | 1.0.0 | MPL-2.0 | weak-copyleft | Low-Med |
+| LICENSE_COMP_BUSL | @license-testbed/busl-pkg | 1.0.0 | BUSL-1.1 | **non-osi-commercial** | **High** |
+| LICENSE_COMP_SSPL | @license-testbed/sspl-pkg | 1.0.0 | SSPL-1.0 | **non-osi-commercial** | **High** |
+| LICENSE_COMP_WTFPL | @license-testbed/wtfpl-pkg | 1.0.0 | WTFPL | permissive | None |
+| LICENSE_COMP_UNLICENSE | @license-testbed/unlicense-pkg | 1.0.0 | Unlicense | public-domain | None |
+| LICENSE_COMP_BSD2 | @license-testbed/bsd2-pkg | 1.0.0 | BSD-2-Clause | permissive | None |
+| LICENSE_COMP_BSD3 | @license-testbed/bsd3-pkg | 1.0.0 | BSD-3-Clause | permissive | None |
+| LICENSE_COMP_0BSD | @license-testbed/zerobsd-pkg | 1.0.0 | 0BSD | permissive | None |
+| LICENSE_COMP_APACHE2 | @license-testbed/apache2-pkg | 1.0.0 | Apache-2.0 | permissive | None |
+| LICENSE_COMP_MIT | @license-testbed/mit-pkg | 1.0.0 | MIT | permissive | None |
+| LICENSE_COMP_ISC | @license-testbed/isc-pkg | 1.0.0 | ISC | permissive | None |
+| LICENSE_COMP_DEVONLYGPL | @license-testbed/dev-only-gpl | 1.0.0 | GPL-3.0-only | **strong-copyleft** | Low (**dev-only**) |
+
+### Transitive Dependencies (Key Items)
+
+| UID | Package | Via | Expected License (SPDX) | Category | Risk |
+|-----|---------|-----|------------------------|----------|------|
+| LICENSE_COMP_LIBVIPS | @img/sharp-libvips-linux-x64 | sharp | LGPL-3.0-or-later | **weak-copyleft-transitive** | Medium |
+
+### Dev Dependencies (Permissive Baseline)
+
+| UID | Package | License | Notes |
+|-----|---------|---------|-------|
+| LICENSE_COMP_MOCHA | mocha | MIT | test runner |
+| LICENSE_COMP_CHAI | chai | MIT | assertion lib |
+| LICENSE_COMP_TYPESCRIPT | typescript | Apache-2.0 | build tool |
+| LICENSE_COMP_TSLIB | tslib | 0BSD | build tool |
+
+---
+
+## Scoring Guide for CycloneDX Worksheet
+
+When evaluating a vendor's CycloneDX output, verify:
+
+1. **Component completeness** — all direct deps listed (30+ components minimum)
+2. **License field type** — `license.id` (SPDX ID) vs `license.name` (free text). Prefer `id`.
+3. **Dual-license handling** — `node-forge` must use `(BSD-3-Clause OR GPL-2.0)` expression, not a single choice
+4. **Transitive inclusion** — `@img/sharp-libvips-*` present with LGPL-3.0-or-later
+5. **Dev tagging** — `@license-testbed/dev-only-gpl` and mocha/chai/typescript/tslib tagged as dev
+6. **Evidence accuracy** — license info should cite the source (package.json, license file, scan match)
+
+Key items that are **critical to catch** for the scorecard (from SCORING_RUBRIC §6b):
+- GPL-3.0 on `ffmpeg-static` (production strong copyleft)
+- AGPL-3.0 on `@license-testbed/agpl-pkg` (network copyleft)
+- BUSL-1.1 / SSPL-1.0 on `busl-pkg` / `sspl-pkg` (non-OSI, commercially-restrictive)
+- Dev-vs-production differentiation for GPL-3.0 (dev-only-gpl < ffmpeg-static)
+
+---
+
+## License Testbed Update Summary
+
+| Testbed | True Vulnerabilities | Honeypots (Expected FPs) |
+|---------|---------------------|--------------------------|
+| secret-testbed | 11 SAST + ~23 secrets | 0 |
+| reflection-testbed | 8 | 4 |
+| access-control-testbed | 14 | 4 |
+| database-testbed | 8 | 3 |
+| cloud-iac-testbed | 10 IaC | 4 |
+| web-vulns-testbed | 18 | 5 |
+| mass-assignment-testbed | 30 CWE-915 | 10 |
+| license-testbed | 11 license findings | 0 (policy test) |
+| **Total** | **~133-134** | **30** |
