@@ -1,0 +1,223 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "TestScanner",
+          "informationUri": "https://example.com",
+          "rules": [
+            {
+              "id": "CWE-89",
+              "shortDescription": {"text": "SQL Injection"},
+              "properties": {"cwe": ["CWE-89"]}
+            },
+            {
+              "id": "CWE-79",
+              "shortDescription": {"text": "Cross-site Scripting"},
+              "properties": {"cwe": ["CWE-79"]}
+            },
+            {
+              "id": "CWE-78",
+              "shortDescription": {"text": "OS Command Injection"},
+              "properties": {"cwe": ["CWE-78"]}
+            },
+            {
+              "id": "CWE-94",
+              "shortDescription": {"text": "Code Injection"},
+              "properties": {"cwe": ["CWE-94"]}
+            },
+            {
+              "id": "CWE-502",
+              "shortDescription": {"text": "Deserialization of Untrusted Data"},
+              "properties": {"cwe": ["CWE-502"]}
+            },
+            {
+              "id": "CWE-639",
+              "shortDescription": {"text": "Authorization Bypass"},
+              "properties": {"cwe": ["CWE-639"]}
+            },
+            {
+              "id": "CWE-250",
+              "shortDescription": {"text": "Execution with Unnecessary Privileges"},
+              "properties": {"cwe": ["CWE-250"]}
+            },
+            {
+              "id": "CWE-915",
+              "shortDescription": {"text": "Mass Assignment"},
+              "properties": {"cwe": ["CWE-915"]}
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CWE-89",
+          "level": "error",
+          "message": {"text": "SQL Injection: User input flows into SQL query"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "reflection-testbed/python/app.py"},
+              "region": {"startLine": 42, "endLine": 43}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-79",
+          "level": "error",
+          "message": {"text": "Reflected XSS in template"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "web-vulns-testbed/python/flask_app/app.py"},
+              "region": {"startLine": 58, "endLine": 75}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-78",
+          "level": "error",
+          "message": {"text": "Command injection via getattr"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "reflection-testbed/python/app.py"},
+              "region": {"startLine": 85, "endLine": 86}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-94",
+          "level": "error",
+          "message": {"text": "SSTI in Jinja2 template"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "web-vulns-testbed/python/flask_app/app.py"},
+              "region": {"startLine": 80, "endLine": 91}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-639",
+          "level": "error",
+          "message": {"text": "IDOR - User profile accessible by ID without authorization"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "access-control-testbed/node/src/routes/users.js"},
+              "region": {"startLine": 12, "endLine": 21}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-250",
+          "level": "error",
+          "message": {"text": "S3 bucket public read ACL"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "cloud-iac-testbed/terraform/main.tf"},
+              "region": {"startLine": 7, "endLine": 23}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-915",
+          "level": "error",
+          "message": {"text": "Mass assignment via Object.assign"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "mass-assignment-testbed/node/src/routes/users.js"},
+              "region": {"startLine": 30, "endLine": 32}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-502",
+          "level": "error",
+          "message": {"text": "Unsafe YAML deserialization"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "reflection-testbed/python/app.py"},
+              "region": {"startLine": 166, "endLine": 167}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-94",
+          "level": "warning",
+          "message": {"text": "eval() usage detected"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "reflection-testbed/python/app.py"},
+              "region": {"startLine": 157, "endLine": 158}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-78",
+          "level": "warning",
+          "message": {"text": "os.system() call detected"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "reflection-testbed/python/app.py"},
+              "region": {"startLine": 139, "endLine": 140}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-89",
+          "level": "error",
+          "message": {"text": "SQL injection in stored procedure"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "database-testbed/tsql/procedures/usp_SearchUsers.sql"},
+              "region": {"startLine": 24, "endLine": 30}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-327",
+          "level": "warning",
+          "message": {"text": "MD5 used for hashing"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "web-vulns-testbed/python/flask_app/app.py"},
+              "region": {"startLine": 17, "endLine": 22}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-915",
+          "level": "warning",
+          "message": {"text": "Potential mass assignment via dict update"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "mass-assignment-testbed/python/app.py"},
+              "region": {"startLine": 43, "endLine": 45}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-287",
+          "level": "error",
+          "message": {"text": "JWT alg:none accepted"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "web-vulns-testbed/node/src/routes/auth.js"},
+              "region": {"startLine": 12, "endLine": 21}
+            }
+          }]
+        },
+        {
+          "ruleId": "CWE-862",
+          "level": "error",
+          "message": {"text": "Missing authorization on admin endpoint"},
+          "locations": [{
+            "physicalLocation": {
+              "artifactLocation": {"uri": "access-control-testbed/node/src/routes/users.js"},
+              "region": {"startLine": 28, "endLine": 42}
+            }
+          }]
+        }
+      ]
+    }
+  ]
+}
