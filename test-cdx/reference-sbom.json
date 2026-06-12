@@ -1,0 +1,446 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-12T20:26:12Z",
+    "tools": [
+      {
+        "name": "reference-sbom-generator",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "license-testbed",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "express",
+      "version": "4.18.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/express@4.18.2"
+    },
+    {
+      "type": "library",
+      "name": "lodash",
+      "version": "4.17.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash@4.17.21"
+    },
+    {
+      "type": "library",
+      "name": "rxjs",
+      "version": "7.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rxjs@7.8.1"
+    },
+    {
+      "type": "library",
+      "name": "semver",
+      "version": "7.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/semver@7.6.0"
+    },
+    {
+      "type": "library",
+      "name": "source-map",
+      "version": "0.7.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map@0.7.4"
+    },
+    {
+      "type": "library",
+      "name": "spdx-license-ids",
+      "version": "3.0.16",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/spdx-license-ids@3.0.16"
+    },
+    {
+      "type": "library",
+      "name": "node-forge",
+      "version": "1.3.1",
+      "licenses": [
+        {
+          "expression": "(BSD-3-Clause OR GPL-2.0)"
+        }
+      ],
+      "purl": "pkg:npm/node-forge@1.3.1"
+    },
+    {
+      "type": "library",
+      "name": "ffmpeg-static",
+      "version": "5.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0-or-later"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ffmpeg-static@5.1.0"
+    },
+    {
+      "type": "library",
+      "name": "sharp",
+      "version": "0.35.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/sharp@0.35.0"
+    },
+    {
+      "type": "library",
+      "name": "my-gpl-package",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/my-gpl-package@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "extjs-gpl",
+      "version": "6.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/extjs-gpl@6.2.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/agpl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0-only"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fagpl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/apache2-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fapache2-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/bsd2-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fbsd2-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/bsd3-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fbsd3-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/busl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fbusl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/dev-only-gpl",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0-only"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fdev-only-gpl@1.0.0",
+      "properties": [
+        {
+          "name": "dependency-type",
+          "value": "dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/isc-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fisc-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/lgpl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-2.1-only"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Flgpl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/mit-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fmit-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/mpl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MPL-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fmpl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/sspl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "SSPL-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fsspl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/unlicense-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Unlicense"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Funlicense-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/wtfpl-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "WTFPL"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fwtfpl-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "@license-testbed/zerobsd-pkg",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40license-testbed%2Fzerobsd-pkg@1.0.0"
+    },
+    {
+      "type": "library",
+      "name": "mocha",
+      "version": "10.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/mocha@10.4.0",
+      "properties": [
+        {
+          "name": "dependency-type",
+          "value": "dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "chai",
+      "version": "5.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/chai@5.1.0",
+      "properties": [
+        {
+          "name": "dependency-type",
+          "value": "dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "version": "5.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typescript@5.4.0",
+      "properties": [
+        {
+          "name": "dependency-type",
+          "value": "dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.6.0",
+      "properties": [
+        {
+          "name": "dependency-type",
+          "value": "dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@img/sharp-libvips-linux-x64",
+      "version": "1.4.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-3.0-or-later"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40img%2Fsharp-libvips-linux-x64@1.4.2"
+    }
+  ]
+}
